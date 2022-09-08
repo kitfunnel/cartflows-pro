@@ -1,0 +1,14 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.wp-block-wcfpb-offer-product-quantity {
+	margin-bottom: 25px;
+	.wpcfp__offer-product-quantity .quantity .input-text.qty.text {
+		max-width: 100%;
+	}
+	.wpcfp__offer-product-quantity .quantity .screen-reader-text {
+		display: unset;
+	}
+}
