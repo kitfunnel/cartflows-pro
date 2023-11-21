@@ -1,0 +1,53 @@
+@font-face {
+	font-family: "wcf-el-pro";
+	src: url( "../fonts/wcf-el-pro.eot?nn1pkj" );
+	src:
+		url( "../fonts/wcf-el-pro.eot?nn1pkj#iefix" ) format( "embedded-opentype" ),
+		url( "../fonts/wcf-el-pro.ttf?nn1pkj" ) format( "truetype" ),
+		url( "../fonts/wcf-el-pro.woff?nn1pkj" ) format( "woff" ),
+		url( "../fonts/wcf-el-pro.svg?nn1pkj#wcf-el-pro" ) format( "svg" );
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="wcf-pro-el-icon-"],
+[class*=" wcf-pro-el-icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "wcf-el-pro" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.wcf-pro-el-icon-offer-product-description::before {
+	content: "\e900";
+}
+.wcf-pro-el-icon-offer-product-image::before {
+	content: "\e901";
+}
+.wcf-pro-el-icon-offer-product-price::before {
+	content: "\e902";
+}
+.wcf-pro-el-icon-offer-product-quantity::before {
+	content: "\e903";
+}
+.wcf-pro-el-icon-offer-product-title::before {
+	content: "\e904";
+}
+.wcf-pro-el-icon-offer-product-variations::before {
+	content: "\e905";
+}
+.wcf-pro-el-icon-yes-no-button::before {
+	content: "\e906";
+}
+.wcf-pro-el-icon-yes-no-link::before {
+	content: "\e907";
+}
