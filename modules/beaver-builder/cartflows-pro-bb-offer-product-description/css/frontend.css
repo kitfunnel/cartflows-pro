@@ -1,0 +1,13 @@
+.cartflows-pro-bb__action-link-icon-after,
+.cartflows-pro-bb__action-link-icon-before,
+.cartflows-pro-bb__action-link-text {
+	vertical-align: middle;
+}
+
+.cartflows-pro-bb__action-link-icon-before {
+	margin-right: 10px;
+}
+
+.cartflows-pro-bb__action-link-icon-after {
+	margin-left: 10px;
+}
