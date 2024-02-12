@@ -112,7 +112,7 @@
 									365
 								);
 							}
-							step_cookieData[ step_id ] = JSON.parse(
+							step_cookieData[ cartflows.control_step ] = JSON.parse(
 								response.current_step_visit
 							);
 

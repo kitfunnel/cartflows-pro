@@ -110,7 +110,7 @@ class Cartflows_Pro_Analytics_Tracking {
 
 		$wcf_step_obj    = wcf_pro_get_step( $current_step );
 		$flow_id         = $wcf_step_obj->get_flow_id();
-		$prev_control_id = $wcf_step_obj->get_prev_control_id_for_analytics( $flow_id, $flow_cookie_data );
+		$prev_control_id = $wcf_step_obj->get_prev_control_id();
 
 		$this->save_conversion_data( $flow_id, $prev_control_id, $step_cookie_data );
 		$current_step_visit_data = $this->save_visit( $current_step, $is_returning );

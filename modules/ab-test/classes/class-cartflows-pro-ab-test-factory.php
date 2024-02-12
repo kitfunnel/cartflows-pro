@@ -206,8 +206,8 @@ class Cartflows_Pro_Ab_Test_Factory {
 
 			if ( $this->control_step_id === $data['id'] ) {
 
-				$this->all_variations = $data['ab-test-variations'];
-				$this->start_ab_test  = $data['ab-test-start'];
+				$this->all_variations = isset( $data['ab-test-variations'] ) ? $data['ab-test-variations'] : array();
+				$this->start_ab_test  = isset( $data['ab-test-start'] ) ? $data['ab-test-start'] : false;
 				break;
 			}
 		}

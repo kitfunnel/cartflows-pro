@@ -113,6 +113,7 @@ class AdminHooks {
 		return $flow_data;
 	}
 
+	
 	/**
 	 * Add flow analytics data.
 	 *
@@ -262,10 +263,6 @@ class AdminHooks {
 	 * @param array $localize localized variables.
 	 */
 	public function localize_required_vars( $localize ) {
-
-		if ( ! wcf_pro()->is_woo_active ) {
-			return $localize;
-		}
 
 		$product_id = \CartFlows_Pro_Licence::get_instance()->product_id;
 

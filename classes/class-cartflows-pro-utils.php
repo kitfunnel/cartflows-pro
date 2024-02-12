@@ -584,7 +584,8 @@ class Cartflows_Pro_Utils {
 	 */
 	public function get_calculated_discount( $discount_type, $discount_value, $product_price ) {
 
-		$custom_price = '';
+		// Assign the receiving product price to custom price to avoid blank value.
+		$custom_price = $product_price;
 
 		if ( ! empty( $discount_type ) ) {
 			if ( 'discount_percent' === $discount_type ) {

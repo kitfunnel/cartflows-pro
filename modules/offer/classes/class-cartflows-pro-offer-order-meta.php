@@ -59,6 +59,10 @@ class Cartflows_Pro_Offer_Order_Meta {
 	 */
 	public function add_order_type( $formatted_total, $order ) {
 
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			require_once ABSPATH . '/wp-admin/includes/screen.php';
+		}
+
 		$screen = get_current_screen();
 
 		if ( $screen && 'edit' == $screen->base && 'shop_order' == $screen->post_type ) {

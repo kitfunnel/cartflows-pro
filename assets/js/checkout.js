@@ -109,7 +109,7 @@
 											selected_payment_method ||
 										'ppcp' === selected_payment_method
 									) {
-										$( key ).addClass( 'ppcp-hidden' );
+										$( key ).css( 'display', 'none' );
 									}
 									selected_payment_gateway.trigger( 'click' );
 								}

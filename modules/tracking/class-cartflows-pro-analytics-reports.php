@@ -163,6 +163,7 @@ class Cartflows_Pro_Analytics_Reports {
 			/* Calculate the Visits of those flows. */
 			$visits = $this->fetch_visits_of_all_flows( $flow_ids, $start_date, $end_date );
 
+			$analytics_data['total_revenue_raw']    = $gross_sale;
 			$analytics_data['total_revenue']        = str_replace( '&nbsp;', '', wc_price( (float) $gross_sale ) );
 			$analytics_data['total_offers_revenue'] = str_replace( '&nbsp;', '', wc_price( (float) $cartflows_offer ) );
 			$analytics_data['total_bump_revenue']   = str_replace( '&nbsp;', '', wc_price( (float) $total_bump_offer ) );
@@ -244,70 +245,6 @@ class Cartflows_Pro_Analytics_Reports {
 			)
 		);
 
-		/**
-		$seperate_offer_revenue = $wpdb->get_results(
-			$wpdb->prepare(
-				"SELECT DATE_FORMAT( $order_date_key, '%%Y-%%m-%%d') AS OrderDate, SUM(meta_value) AS Revenue
-			FROM $order_table INNER JOIN $order_meta_table
-			ON $order_table.$order_table_id = $order_meta_table.$order_id_key
-			WHERE $order_type_key = 'shop_order'
-			AND $order_status_key IN ('wc-completed', 'wc-processing', 'wc-cancelled')
-			AND meta_key = '_order_total'
-			AND EXISTS (
-				SELECT 1
-				FROM $order_meta_table
-				WHERE $order_id_key = $order_table.$order_table_id
-				AND meta_key = '_cartflows_offer'
-			)
-			AND $order_date_key >= %s
-			AND $order_date_key <= %s
-			GROUP BY OrderDate
-			ORDER BY OrderDate ASC",
-				$start_date,
-				$end_date
-			)
-		);
-
-		$mapped_offer_revenue = array();
-		// Ignoring NamingConventions rule as it is used in query result.
-		//phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
-		foreach ( $seperate_offer_revenue as $sindex => $sdata ) {
-			$found = false;
-
-			foreach ( $merged_offer_revenue as $mindex => $mdata ) {
-
-				if ( $sdata->OrderDate === $mdata->OrderDate ) {
-					$mapped_offer_revenue[] = (object) array(
-						'OrderDate' => $sdata->OrderDate,
-						'Revenue'   => $sdata->Revenue + $mdata->Revenue,
-					);
-					$found                  = true;
-					break;
-				}
-			}
-
-			if ( ! $found ) {
-				$mapped_offer_revenue[] = $sdata;
-			}
-		}
-
-		foreach ( $merged_offer_revenue as $item2 ) {
-			$found = false;
-
-			// Loop through $mapped_offer_revenue to check if 'date' already exists.
-			foreach ( $mapped_offer_revenue as $item ) {
-				if ( $item2->OrderDate == $item->OrderDate ) {
-					$found = true;
-					break;
-				}
-			}
-
-			// If 'date' was not found, add $item2 to $mapped_offer_revenue.
-			if ( ! $found ) {
-				$mapped_offer_revenue[] = $item2;
-			}
-		}
-		*/
 		$analytics_data['offer_revenue_by_date'] = $merged_offer_revenue;
 
 		return $analytics_data;

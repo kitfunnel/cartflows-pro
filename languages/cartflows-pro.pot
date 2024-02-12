@@ -1,15 +1,15 @@
-# Copyright (C) 2023 CartFlows Inc
+# Copyright (C) 2024 CartFlows Inc
 # This file is distributed under the same license as the CartFlows Pro plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: CartFlows Pro 2.0.2\n"
+"Project-Id-Version: CartFlows Pro 2.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cartflows-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-12-04T09:59:30+00:00\n"
+"POT-Creation-Date: 2024-01-23T13:12:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: cartflows-pro\n"
@@ -49,7 +49,7 @@ msgid "Invalid Flow ID has been provided."
 msgstr ""
 
 #: admin-core/ajax/form-fields.php:74
-#: admin-core/ajax/form-fields.php:194
+#: admin-core/ajax/form-fields.php:193
 #: admin-core/ajax/multiple-order-bump.php:74
 #: admin-core/ajax/multiple-order-bump.php:300
 #: admin-core/ajax/multiple-order-bump.php:533
@@ -61,11 +61,11 @@ msgstr ""
 msgid "No post data found!"
 msgstr ""
 
-#: admin-core/ajax/form-fields.php:166
+#: admin-core/ajax/form-fields.php:164
 msgid "Custom field prepared."
 msgstr ""
 
-#: admin-core/ajax/form-fields.php:174
+#: admin-core/ajax/form-fields.php:172
 msgid "Name field is empty!"
 msgstr ""
 
@@ -172,66 +172,66 @@ msgstr ""
 msgid "Nonce verification failed."
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:170
+#: admin-core/inc/global-settings-pro.php:194
 msgid "Enable Pre Checkout Offers"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:171
+#: admin-core/inc/global-settings-pro.php:195
 msgid "If enable, it will add the Pre Checkout Offer settings in checkout step settings."
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:183
+#: admin-core/inc/global-settings-pro.php:207
 msgid "Enable PayPal Reference Transactions."
 msgstr ""
 
 #. translators: %1$1s: link html start, %2$12: link html end
-#: admin-core/inc/global-settings-pro.php:185
+#: admin-core/inc/global-settings-pro.php:209
 msgid "This option will work with %1$1s PayPal Standard%2$2s & %3$3s PayPal Checkout%4$4s Gateways only. To know more about PayPal reference transactions %5$5s click here. %6$6s"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:198
+#: admin-core/inc/global-settings-pro.php:222
 msgid "Create a new child order (Recommended)"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:199
+#: admin-core/inc/global-settings-pro.php:223
 msgid "This option create a new order for all accepted upsell/downsell offers. Main order will be parent order for them."
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:203
+#: admin-core/inc/global-settings-pro.php:227
 msgid "Add to main order"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:204
+#: admin-core/inc/global-settings-pro.php:228
 msgid "This option will merge all accepted upsell/downsell offers into main order."
 msgstr ""
 
 #. translators: %1$1s: link html start, %2$12: link html end
-#: admin-core/inc/global-settings-pro.php:211
+#: admin-core/inc/global-settings-pro.php:235
 msgid "For more information about the offer settings please %1$1s Click here. %2$2s"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:224
+#: admin-core/inc/global-settings-pro.php:248
 msgid "Enter License Key"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:225
+#: admin-core/inc/global-settings-pro.php:249
 msgid "Enter your license key"
 msgstr ""
 
 #. translators: %1$1s: link html start, %2$12: link html end
-#: admin-core/inc/global-settings-pro.php:231
+#: admin-core/inc/global-settings-pro.php:255
 msgid "If you don't have License key, you can get it from %1$shere%2$s"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:245
+#: admin-core/inc/global-settings-pro.php:269
 msgid "A/B test Pemalink"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:251
+#: admin-core/inc/global-settings-pro.php:275
 msgid "Override Permalink for A/B test"
 msgstr ""
 
-#: admin-core/inc/global-settings-pro.php:252
+#: admin-core/inc/global-settings-pro.php:276
 msgid "If enable, it will use same permalink for all variants."
 msgstr ""
 
@@ -380,11 +380,11 @@ msgstr ""
 msgid "1st migration action scheduled successfully."
 msgstr ""
 
-#: classes/class-cartflows-pro-admin.php:604
+#: classes/class-cartflows-pro-admin.php:603
 msgid "Upsell Offer"
 msgstr ""
 
-#: classes/class-cartflows-pro-admin.php:606
+#: classes/class-cartflows-pro-admin.php:605
 msgid "Downsell Offer"
 msgstr ""
 
@@ -2313,29 +2313,29 @@ msgstr ""
 msgid "Sorry, your session has expired."
 msgstr ""
 
-#: modules/checkout/classes/class-cartflows-pro-product-options.php:1123
+#: modules/checkout/classes/class-cartflows-pro-product-options.php:1124
 msgid "Choose a Variation"
 msgstr ""
 
 #. translators: %s: Attribute name.
-#: modules/checkout/classes/class-cartflows-pro-product-options.php:1284
+#: modules/checkout/classes/class-cartflows-pro-product-options.php:1285
 msgid "Invalid value posted for %s"
 msgstr ""
 
 #. translators: %s: Attribute name.
-#: modules/checkout/classes/class-cartflows-pro-product-options.php:1293
+#: modules/checkout/classes/class-cartflows-pro-product-options.php:1294
 msgid "%s is a required field"
 msgid_plural "%s are required fields"
 msgstr[0] ""
 msgstr[1] ""
 
-#: modules/checkout/classes/class-cartflows-pro-product-options.php:1418
+#: modules/checkout/classes/class-cartflows-pro-product-options.php:1419
 #: modules/checkout/templates/your-product/item-title.php:60
 msgid " every "
 msgstr ""
 
 #. translators:  %1$s %2$s : trial length trial period
-#: modules/checkout/classes/class-cartflows-pro-product-options.php:1758
+#: modules/checkout/classes/class-cartflows-pro-product-options.php:1759
 msgid " with %1$s %2$s free trial "
 msgstr ""
 
@@ -2522,7 +2522,7 @@ msgstr ""
 msgid "Placeholder"
 msgstr ""
 
-#: modules/checkout/templates/your-product/item-quantity.php:21
+#: modules/checkout/templates/your-product/item-quantity.php:22
 msgid "This product is set to purchase only 1 item per order."
 msgstr ""
 
@@ -3067,39 +3067,39 @@ msgstr ""
 msgid "Awaiting product image"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:71
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:75
 msgid "CartFlows Order Auto Cancelled"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:79
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:83
 msgid "CartFlows Upsell"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:81
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:85
 msgid "CartFlows Downsell"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:106
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:110
 msgid "Amount Charged: "
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:107
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:111
 msgid "This order has charged the difference, and the same amount will be considered while refunding this order. You need to refund the rest of the amount from the parent order."
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:116
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:120
 msgid "CartFlows Parent Order"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:128
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:132
 msgid "CartFlows Upsell&sol;Downsell Orders"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:137
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:141
 msgid "Upsell"
 msgstr ""
 
-#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:139
+#: modules/offer/classes/class-cartflows-pro-offer-order-meta.php:143
 msgid "Downsell"
 msgstr ""
 

@@ -88,7 +88,19 @@ class GlobalSettingsPro {
 					if ( isset( $_POST['_cartflows_offer_global_settings'] ) ) {
 						// Loop through the input and sanitize each of the values.
 						$new_settings = \Cartflows_Pro_Admin_Helper::sanitize_form_inputs( wp_unslash( $_POST['_cartflows_offer_global_settings'] ) ); //phpcs:ignore
-						\Cartflows_Helper::update_admin_settings_option( '_cartflows_offer_global_settings', $new_settings, false );
+
+						/**
+						 * Handled backward compatibility of `update_admin_settings_option` function.
+						 *
+						 * Old: \Cartflows_Helper::update_admin_settings_option.
+						 * New: AdminHelper::update_admin_settings_option.
+						 * Note: Remove after two updates.
+						 */
+						if ( method_exists( 'AdminHelper', 'update_admin_settings_option' ) ) {
+							AdminHelper::update_admin_settings_option( '_cartflows_offer_global_settings', $new_settings, false );
+						} else {
+							\Cartflows_Helper::update_admin_settings_option( '_cartflows_offer_global_settings', $new_settings, false );
+						}
 					}
 					break;
 
@@ -96,7 +108,19 @@ class GlobalSettingsPro {
 					if ( isset( $_POST['_cartflows_abtest_settings'] ) ) {
 						// Loop through the input and sanitize each of the values.
 						$new_settings = \Cartflows_Pro_Admin_Helper::sanitize_form_inputs( wp_unslash( $_POST['_cartflows_abtest_settings'] ) ); //phpcs:ignore
-						\Cartflows_Helper::update_admin_settings_option( '_cartflows_abtest_settings', $new_settings, false );
+
+						/**
+						 * Handled backward compatibility of `update_admin_settings_option` function.
+						 *
+						 * Old: \Cartflows_Helper::update_admin_settings_option.
+						 * New: AdminHelper::update_admin_settings_option.
+						 * Note: Remove after two updates.
+						 */
+						if ( method_exists( 'AdminHelper', 'update_admin_settings_option' ) ) {
+							AdminHelper::update_admin_settings_option( '_cartflows_abtest_settings', $new_settings, false );
+						} else {
+							\Cartflows_Helper::update_admin_settings_option( '_cartflows_abtest_settings', $new_settings, false );
+						}
 					}
 					break;
 

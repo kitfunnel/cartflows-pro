@@ -1000,12 +1000,13 @@ class Cartflows_Pro_Product_Options {
 
 		if ( $_product->is_type( 'subscription' ) || $_product->is_type( 'variable-subscription' ) || $_product->is_type( 'subscription_variation' ) ) {
 			$_product_price += $this->get_subscription_sign_up_fee( $_product );
+
 			if ( '' !== $custom_price ) {
 				$custom_price += $this->get_subscription_sign_up_fee( $_product );
 			}
-			if ( WC_Subscriptions_Product::get_trial_length( $_product ) > 0 ) {
-					$_product_price = $this->get_subscription_sign_up_fee( $_product );
-					$custom_price   = '';
+
+			if ( ! empty( $_product_price ) && WC_Subscriptions_Product::get_trial_length( $_product ) > 0 ) {
+					$custom_price = '';
 			}
 		}
 
@@ -1634,8 +1635,8 @@ class Cartflows_Pro_Product_Options {
 			$original_product_price = $original_product_price + $sign_up_fee;
 
 			// If product has free trial then show sign up fee only.
-			if ( ! empty( $sign_up_fee ) && WC_Subscriptions_Product::get_trial_length( $product->get_id() ) > 0 ) {
-				$original_product_price = $sign_up_fee;
+			if ( WC_Subscriptions_Product::get_trial_length( $product->get_id() ) > 0 ) {
+				$original_product_price = ! empty( $sign_up_fee ) ? $sign_up_fee : $original_product_price;
 				$trial_period           = $this->get_subscription_trial_period( $product );
 			}
 		}

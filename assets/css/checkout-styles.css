@@ -111,9 +111,8 @@ body .wcf-pre-checkout-offer-wrapper {
 }
 
 .wcf-embed-checkout-form-two-step .woocommerce .wcf-embed-checkout-form-nav-btns a.wcf-next-button {
-	border: 1px solid;
-	border-color: #f16334;
-	background-color: #f16334;
+	border-color: var( --wcf-btn-bg-color );
+	background-color: var( --wcf-btn-bg-color );
 	font-family: inherit;
 	font-weight: inherit;
 	letter-spacing: 0.5px;
@@ -122,9 +121,15 @@ body .wcf-pre-checkout-offer-wrapper {
 	font-size: 16px;
 	line-height: 1.5;
 	border-radius: 3px;
-	color: #fff;
+	color: var( --wcf-btn-text-color );
 	text-transform: none;
 	text-align: center;
+}
+
+.wcf-embed-checkout-form-two-step .woocommerce .wcf-embed-checkout-form-nav-btns a.wcf-next-button:hover {
+	background-color: var( --wcf-btn-bg-hover-color );
+	border-color: var( --wcf-btn-bg-hover-color );
+	color: var( --wcf-btn-hover-text-color );
 }
 
 .wcf-embed-checkout-form-two-step .wcf-embed-checkout-form-nav-btns .wcf-next-button .wcf-button-text,
@@ -269,7 +274,7 @@ body .wcf-pre-checkout-offer-wrapper {
 }
 
 .wcf-embed-checkout-form-two-step .wcf-embed-checkout-form-steps .wcf-current .step-name {
-	color: #f16334;
+	color: var( --wcf-heading-color );
 }
 
 .wcf-embed-checkout-form-two-step .wcf-embed-checkout-form-steps a {

@@ -140,8 +140,7 @@ class FormFields extends AjaxBase {
 			}
 
 			if ( 'select' === $type || 'radio' === $type ) {
-				$options               = explode( '|', $options );
-				$field_data['options'] = array_combine( $options, $options );
+				$field_data['options'] = $options;
 			}
 
 			if ( 'number' === $type ) {
@@ -151,8 +150,7 @@ class FormFields extends AjaxBase {
 				);
 			}
 
-			$new_field = $field_data;
-
+			$new_field = $field_data;   
 			/* Add checkout field */
 			\Cartflows_Pro_Helper::add_checkout_field( $add_to, $name, $post_id, $field_data );
 
@@ -176,6 +174,7 @@ class FormFields extends AjaxBase {
 		}
 
 	}
+	
 
 	/**
 	 * Delete Field.

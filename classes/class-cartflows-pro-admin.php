@@ -558,7 +558,6 @@ class Cartflows_Pro_Admin {
 			'instance'    => $cartflows_license_instance->wc_am_instance_id,
 			'object'      => $cartflows_license_instance->wc_am_domain,
 			'licence_key' => $licence_key,
-			// Add new license params here.
 		);
 
 		return apply_filters( 'cartflows_pro_licence_args', wp_parse_args( $args, $defaults ) );

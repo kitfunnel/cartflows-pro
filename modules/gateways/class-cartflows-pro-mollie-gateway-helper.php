@@ -49,12 +49,26 @@ class Cartflows_Pro_Mollie_Gateway_Helper {
 	 */
 	public function get_user_mollie_customer_id( $order ) {
 
+		// Get the customer ID from the Customer.
+		$user_id     = is_object( $order ) ? $order->get_customer_id() : '';
+		$customer_id = '';
+
+		if ( empty( $user_id ) ) {
+			wcf()->logger->log( __CLASS__ . '::' . __FUNCTION__ . ': Invalid Order object. Expected object type not received. Customer ID cannot be retried from customer\'s data.' . wcf_print_r( $order, true ) );
+		}
+
+		if ( ! empty( $user_id ) ) {
+			$customer    = new WC_Customer( intval( $user_id ) );
+			$customer_id = $customer->get_meta( 'mollie_customer_id' );
+		}
+
 		$mollie_customer_id = $order->get_meta( '_wcf_mollie_customer_id', true );
 
 		if ( ! $mollie_customer_id ) {
 			$mollie_customer_id = $order->get_meta( '_mollie_customer_id', true );
 		}
-		return $mollie_customer_id;
+
+		return ! empty( $mollie_customer_id ) ? $mollie_customer_id : $customer_id;
 	}
 
 	/**
@@ -360,7 +374,11 @@ class Cartflows_Pro_Mollie_Gateway_Helper {
 	 */
 	public function maybe_create_mollie_customer_id( $data, $order ) {
 
-		if ( isset( $data['payment']['customerId'] ) && null !== $data['payment']['customerId'] ) {
+		$customer_id = isset( $data['payment']['customerId'] ) && null !== $data['payment']['customerId'] ? $data['payment']['customerId'] : '';
+
+		if ( ! empty( $customer_id ) ) {
+			return $data;
+		} elseif ( isset( $data['customerId'] ) && null !== $data['customerId'] ) {
 			return $data;
 		}
 
