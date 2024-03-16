@@ -628,7 +628,7 @@ class Cartflows_Pro_Order_Bump_Product {
 
 			$display_price = '';
 
-			if ( Cartflows_Pro_Helper::is_valid_custom_price( $custom_price ) ) {
+			if ( 0 < $discount_value && Cartflows_Pro_Helper::is_valid_custom_price( $custom_price ) ) {
 				$display_price  = '<del class="wcf-regular-price">' . wc_price( $product_price_data['product_price'] ) . '</del>';
 				$display_price .= ' <span class="wcf-discount-price">' . wc_price( $product_price_data['custom_price'] ) . '</span>';
 			} elseif ( is_array( $product_price_data ) && (int) $product_price_data['product_price'] >= 0 ) {

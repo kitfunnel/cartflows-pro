@@ -72,9 +72,9 @@ class Cartflows_Pro_Checkout_Markup {
 
 		add_filter( 'woocommerce_form_field_hidden', array( $this, 'wcf_form_field_hidden' ), 10, 4 );
 
-		add_action( 'cartflows_checkout_before_shortcode', array( $this, 'apply_url_coupon' ), 10 );
+		add_action( 'cartflows_checkout_before_shortcode', array( $this, 'add_products_using_url' ), 10 );
 
-		add_action( 'cartflows_checkout_before_shortcode', array( $this, 'add_proudcts_using_url' ), 10 );
+		add_action( 'cartflows_checkout_before_shortcode', array( $this, 'apply_url_coupon' ), 30 ); // Execute this action after the above action to avoid applying the coupon early.
 
 		add_filter( 'cartflows_selected_checkout_products', array( $this, 'update_the_checkout_products_data' ), 10, 2 );
 
@@ -99,8 +99,10 @@ class Cartflows_Pro_Checkout_Markup {
 
 	/**
 	 * Add the product in cart through URL.
+	 *
+	 * @return void
 	 */
-	public function add_proudcts_using_url() {
+	public function add_products_using_url() {
 
 		$url_products = apply_filters( 'cartflows_add_to_cart_products_from_url', true );
 

@@ -57,7 +57,7 @@ if ( in_array( $price_sel_data['type'], array( 'subscription', 'variable-subscri
 
 	$display_title     .= '<div class="wcf-display-subscription-details">';
 		$display_title .= '<span class="wcf_subscription_price">' . wc_price( $price_sel_data['subscription_price'] * $price_sel_data['quantity'] ) . '</span>';
-		$display_title .= '<span class="wcf_subscription_period">' . __( ' every ', 'cartflows-pro' ) . wcs_get_subscription_period_strings( WC_Subscriptions_Product::get_interval( $product ), WC_Subscriptions_Product::get_period( $product ) ) . '</span>';
+		$display_title .= wcf_pro()->is_wcs_active ? '<span class="wcf_subscription_period">' . __( ' every ', 'cartflows-pro' ) . wcs_get_subscription_period_strings( WC_Subscriptions_Product::get_interval( $product ), WC_Subscriptions_Product::get_period( $product ) ) . '</span>' : '';
 		$display_title .= '<span class="wcf_subscription_free_trial">' . $price_sel_data['trial_period_string'] . '</span>';
 
 	if ( ! empty( $price_sel_data['sign_up_fee'] ) ) {

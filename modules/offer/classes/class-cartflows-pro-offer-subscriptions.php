@@ -101,8 +101,8 @@ class Cartflows_Pro_Offer_Subscriptions {
 
 		wcf()->logger->log( 'Subscription Product-' . $product_id );
 
-		// If product is of subscription type.
-		if ( $product instanceof WC_Product && ( $product->get_type() === 'subscription' || $product->get_type() === 'subscription_variation' ) ) {
+		// If product is of subscription type. Execute the code only if the WooCommerce Subscription plugin is active.
+		if ( wcf_pro()->is_wcs_active && $product instanceof WC_Product && ( $product->get_type() === 'subscription' || $product->get_type() === 'subscription_variation' ) ) {
 
 			if ( is_user_logged_in() ) {
 				$user_id = $order->get_user_id();

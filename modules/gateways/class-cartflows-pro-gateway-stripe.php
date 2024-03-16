@@ -414,16 +414,16 @@ class Cartflows_Pro_Gateway_Stripe {
 		$full_request = $this->generate_payment_request( $order, $prepared_source, $product );
 
 		$request = array(
-			'amount'               => WC_Stripe_Helper::get_stripe_amount( $product['price'] ),
-			'currency'             => strtolower( $order->get_currency() ),
-			'description'          => $full_request['description'],
-			'metadata'             => $full_request['metadata'],
-			'statement_descriptor' => WC_Stripe_Helper::clean_statement_descriptor( $full_request['statement_descriptor'] ),
-			'capture_method'       => ( 'true' === $full_request['capture'] ) ? 'automatic' : 'manual',
-			'payment_method_types' => array(
+			'amount'                      => WC_Stripe_Helper::get_stripe_amount( $product['price'] ),
+			'currency'                    => strtolower( $order->get_currency() ),
+			'description'                 => $full_request['description'],
+			'metadata'                    => $full_request['metadata'],
+			'statement_descriptor_suffix' => WC_Stripe_Helper::clean_statement_descriptor( $full_request['statement_descriptor'] ),
+			'capture_method'              => ( 'true' === $full_request['capture'] ) ? 'automatic' : 'manual',
+			'payment_method_types'        => array(
 				'card',
 			),
-			'customer'             => $prepared_source->customer,
+			'customer'                    => $prepared_source->customer,
 		);
 
 		$request = WC_Stripe_Helper::add_payment_method_to_request_array( $prepared_source->source, $request );

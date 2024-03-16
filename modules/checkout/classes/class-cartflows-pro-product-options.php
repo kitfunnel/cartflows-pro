@@ -322,6 +322,10 @@ class Cartflows_Pro_Product_Options {
 
 						$checkout_products[ $in ]['subscription_variation'] = true;
 					}
+
+					if ( $_product->is_type( 'subscription' ) ) {
+						$checkout_products[ $in ]['subscription'] = true;
+					}
 				}
 			}
 
@@ -998,7 +1002,7 @@ class Cartflows_Pro_Product_Options {
 			}
 		}
 
-		if ( $_product->is_type( 'subscription' ) || $_product->is_type( 'variable-subscription' ) || $_product->is_type( 'subscription_variation' ) ) {
+		if ( wcf_pro()->is_wcs_active && $_product->is_type( 'subscription' ) || $_product->is_type( 'variable-subscription' ) || $_product->is_type( 'subscription_variation' ) ) {
 			$_product_price += $this->get_subscription_sign_up_fee( $_product );
 
 			if ( '' !== $custom_price ) {
@@ -1006,7 +1010,8 @@ class Cartflows_Pro_Product_Options {
 			}
 
 			if ( ! empty( $_product_price ) && WC_Subscriptions_Product::get_trial_length( $_product ) > 0 ) {
-					$custom_price = '';
+				$_product_price = $this->get_subscription_sign_up_fee( $_product );
+				$custom_price   = '';
 			}
 		}
 
@@ -1405,7 +1410,7 @@ class Cartflows_Pro_Product_Options {
 
 			$is_subscription = false;
 
-			if ( 'subscription_variation' === $product_type ) {
+			if ( 'subscription_variation' === $product_type && wcf_pro()->is_wcs_active ) {
 				$is_subscription = true;
 
 				$price = '' !== $custom_price ? $custom_price : $_product_price;
@@ -1629,7 +1634,7 @@ class Cartflows_Pro_Product_Options {
 		}
 
 		$is_subscription_product = $product->is_type( 'subscription' ) || ( isset( $data['variable-subscription'] ) && $data['variable-subscription'] ) || ( isset( $data['subscription_variation'] ) && $data['subscription_variation'] );
-		if ( $is_subscription_product && class_exists( 'WC_Subscriptions_Product' ) ) {
+		if ( $is_subscription_product && wcf_pro()->is_wcs_active ) {
 			$sign_up_fee            = $this->get_subscription_sign_up_fee( $product );
 			$subscription_price     = $original_product_price;
 			$original_product_price = $original_product_price + $sign_up_fee;
@@ -1658,7 +1663,7 @@ class Cartflows_Pro_Product_Options {
 			$discounted_price   = $is_tax ? $this->get_taxable_product_price( $product, $discounted_price ) : $discounted_price;
 			$subscription_price = $discounted_price;
 
-			if ( $is_subscription_product ) {
+			if ( $is_subscription_product && wcf_pro()->is_wcs_active ) {
 				/**
 				 * Default: signup fees is zero.
 				 *

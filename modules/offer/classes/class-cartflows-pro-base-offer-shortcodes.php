@@ -180,7 +180,7 @@ class Cartflows_Pro_Base_Offer_Shortcodes {
 				$output .= '<span class="wcf-regular-price del">' . wc_price( $display_original_price, $price_args ) . '</span>';
 				$output .= '<span class="wcf-discount-price">' . wc_price( $display_price, $price_args ) . '</span>';
 			} else {
-				if ( 'display' === $context && in_array( $product->get_type(), array( 'subscription', 'variable-subscription', 'subscription_variation' ), true ) ) {
+				if ( 'display' === $context && ( wcf_pro()->is_wcs_active && in_array( $product->get_type(), array( 'subscription', 'variable-subscription', 'subscription_variation' ), true ) ) ) {
 					$output .= '<span class="wcf-regular-price">' . WC_Subscriptions_Product::get_price_string( $product ) . '</span>';
 				} else {
 					$output .= '<span class="wcf-regular-price">' . wc_price( $display_price, $price_args ) . '</span>';

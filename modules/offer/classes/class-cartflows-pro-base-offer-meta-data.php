@@ -311,9 +311,9 @@ class Cartflows_Pro_Base_Offer_Meta_Data {
 					'fields'   => array(
 						'slug'               => array(
 							'type'          => 'text',
-							'name'          => 'post_name',
+							'name'          => 'step_post_name',
 							'label'         => __( 'Step Slug', 'cartflows-pro' ),
-							'value'         => get_post_field( 'post_name', $step_id ),
+							'value'         => get_post_field( 'post_name' ),
 							'display_align' => 'vertical',
 						),
 						'step-note'          => array(

@@ -48,7 +48,7 @@ class Cartflows_Pro_Base_Offer {
 		/* Offer order hierachy of separate orders */
 		require_once CARTFLOWS_PRO_BASE_OFFER_DIR . 'classes/class-cartflows-pro-offer-order-meta.php';
 
-		if ( class_exists( 'WC_Subscriptions' ) ) {
+		if ( wcf_pro()->is_wcs_active ) {
 			require_once CARTFLOWS_PRO_BASE_OFFER_DIR . 'classes/class-cartflows-pro-offer-subscriptions.php';
 		}
 	}

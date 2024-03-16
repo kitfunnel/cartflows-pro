@@ -120,7 +120,7 @@ class MultipleOrderBump extends AjaxBase {
 
 
 
-						if ( in_array( 'product', array_keys( $new_data ), true ) && $new_data['product'] !== $ob_data['product'] ) { // Checking if product tab. Can update later.
+						if ( ! empty( array_keys( $new_data ) ) && in_array( 'product', array_keys( $new_data ), true ) && $new_data['product'] !== $ob_data['product'] ) { // Checking if product tab. Can update later.
 							$order_bumps[ $index ]['product_image']   = '';
 							$order_bumps[ $index ]['product_img_obj'] = '';
 							$order_bumps[ $index ]['desc_text']       = false; // Can't set it as empty. Case: If user want to put desc empty.
@@ -136,7 +136,7 @@ class MultipleOrderBump extends AjaxBase {
 					'success'  => true,
 				);
 
-				if ( in_array( 'product', array_keys( $new_data ), true ) && $new_data['product'] !== $ob_data['product'] ) {
+				if ( ! empty( array_keys( $new_data ) ) && in_array( 'product', array_keys( $new_data ), true ) && $new_data['product'] !== $ob_data['product'] ) {
 					$current_ob                  = $this->get_ob_data( $step_id, $ob_id );
 					$response_data['current_ob'] = $current_ob;
 				}
@@ -419,6 +419,8 @@ class MultipleOrderBump extends AjaxBase {
 				$ob_data['desc_text'] = $product_desc . '<br>' . "\r\n{{product_price}}";
 			}
 
+		
+
 			// Calculate product custom price.
 
 			$custom_price       = wcf_pro()->utils->get_calculated_discount( $ob_data['discount_type'], $ob_data['discount_value'], $ob_data['product'][0]['original_price'] );
@@ -426,8 +428,9 @@ class MultipleOrderBump extends AjaxBase {
 
 			$display_price = '';
 
-			if ( \Cartflows_Pro_Helper::is_valid_custom_price( $custom_price ) ) {
-				$display_price  = '<del class="wcf-regular-price">' . wc_price( $product_price_data['product_price'] ) . '</del>';
+			if ( 0 < $ob_data['discount_value'] && \Cartflows_Pro_Helper::is_valid_custom_price( $custom_price ) ) {
+				$display_price = '<del class="wcf-regular-price">' . wc_price( $product_price_data['product_price'] ) . '</del>';
+				
 				$display_price .= ' <span class="wcf-discount-price">' . wc_price( $product_price_data['custom_price'] ) . '</span>';
 			} else {
 				$display_price = '<span class="wcf-normal-price">' . wc_price( $product_price_data['product_price'] ) . '</span>';

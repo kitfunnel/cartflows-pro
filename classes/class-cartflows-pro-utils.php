@@ -325,7 +325,7 @@ class Cartflows_Pro_Utils {
 			$shipping_incl_tax = isset( $shipping_incl_tax ) ? $shipping_incl_tax : $shipping_fee;
 			$shipping_excl_tax = isset( $shipping_excl_tax ) ? $shipping_excl_tax : $shipping_fee;
 
-			if ( in_array( $product_type, $subscription_types, true ) && class_exists( 'WC_Subscriptions_Product' ) ) {
+			if ( wcf_pro()->is_wcs_active && class_exists( 'WC_Subscriptions_Product' ) && in_array( $product_type, $subscription_types, true ) ) {
 
 				$subscription_signup_fees     = WC_Subscriptions_Product::get_sign_up_fee( $product );
 				$subscription_signup_fees_new = 0;
@@ -579,7 +579,7 @@ class Cartflows_Pro_Utils {
 	 * @param string $discount_type discount type.
 	 * @param int    $discount_value discount value.
 	 * @param int    $product_price product price.
-	 * @return int
+	 * @return float|int|string $custom_price The modified custom price.
 	 * @since 1.1.5
 	 */
 	public function get_calculated_discount( $discount_type, $discount_value, $product_price ) {

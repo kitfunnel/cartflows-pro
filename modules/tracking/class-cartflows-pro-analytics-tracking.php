@@ -75,6 +75,8 @@ class Cartflows_Pro_Analytics_Tracking {
 	 */
 	public function save_analytics_data( $request ) {
 
+		wcf()->logger->log( __CLASS__ . '::' . __FUNCTION__ . ' : Entering' );
+
 		$data = $request->get_body();
 
 		if ( ! empty( $data ) ) {
@@ -104,6 +106,8 @@ class Cartflows_Pro_Analytics_Tracking {
 
 		$analytics = wcf()->options->get_flow_meta_value( $current_flow, 'wcf-enable-analytics' );
 
+		wcf()->logger->log( 'Is analytics enabled : ' . $analytics );
+
 		if ( 'no' === $analytics ) {
 			return;
 		}
@@ -122,6 +126,7 @@ class Cartflows_Pro_Analytics_Tracking {
 		);
 
 		$response = rest_ensure_response( $response );
+		wcf()->logger->log( __CLASS__ . '::' . __FUNCTION__ . ' : Exited' );
 		return $response;
 	}
 
@@ -238,6 +243,7 @@ class Cartflows_Pro_Analytics_Tracking {
 	 * @since 1.0.0
 	 */
 	public function save_visit( $step_id, $is_returning ) {
+		wcf()->logger->log( __CLASS__ . '::' . __FUNCTION__ . ' : Entering ' );
 
 		global $wpdb;
 
@@ -261,6 +267,8 @@ class Cartflows_Pro_Analytics_Tracking {
 		);// db call ok;.
 
 		$visit_id = $wpdb->insert_id;
+
+		wcf()->logger->log( 'Visit recorded : ' . $visit_id );
 
 		$meta_data = array(
 			'http_referer' => $http_referer,
@@ -288,6 +296,8 @@ class Cartflows_Pro_Analytics_Tracking {
 		$wcf_step_obj    = wcf_pro_get_step( $step_id );
 		$step_control_id = $wcf_step_obj->get_control_step();
 		$step_type       = $wcf_step_obj->get_step_type();
+
+		wcf()->logger->log( __CLASS__ . '::' . __FUNCTION__ . ' : Exited' );
 
 		return array(
 			'control_step_id' => $step_control_id,

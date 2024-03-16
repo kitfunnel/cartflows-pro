@@ -107,7 +107,9 @@
 									if (
 										'ppcp-gateway' ===
 											selected_payment_method ||
-										'ppcp' === selected_payment_method
+										'ppcp' === selected_payment_method ||
+										'cppw_paypal' ===
+											selected_payment_method
 									) {
 										$( key ).css( 'display', 'none' );
 									}

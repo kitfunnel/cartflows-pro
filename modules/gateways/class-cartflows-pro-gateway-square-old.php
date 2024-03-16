@@ -443,6 +443,11 @@ class Cartflows_Pro_Gateway_Square_Old {
 	 */
 	public function may_reduce_the_offer_product_stock( $order, $offer_product ) {
 
+		// Do not update the quantity if the page gateway is not the one which is required.
+		if ( 'square_credit_card' !== $order->get_payment_method() ) {
+			return;
+		}
+
 		$product = wc_get_product( $offer_product['id'] );
 
 		if ( ! wcf_pro()->utils->is_separate_offer_order() && $product->managing_stock() ) {

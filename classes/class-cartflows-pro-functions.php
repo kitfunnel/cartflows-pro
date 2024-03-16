@@ -124,8 +124,8 @@ if ( ! function_exists( 'wcf_update_the_checkout_transient' ) ) {
 	 */
 	function wcf_update_the_checkout_transient( $checkout_id ) {
 
-		$user_key        = WC()->session->get_customer_id();
-		$cart_data       = WC()->cart->get_cart();
+		$user_key        = null !== WC()->session ? WC()->session->get_customer_id() : '';
+		$cart_data       = null !== WC()->cart ? WC()->cart->get_cart() : '';
 		$expiration_time = 30;
 
 		if ( ! empty( $user_key ) && ! empty( $checkout_id ) ) {

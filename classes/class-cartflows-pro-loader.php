@@ -94,6 +94,14 @@ if ( ! class_exists( 'Cartflows_Pro_Loader' ) ) {
 		 */
 		public $is_woo_active = true;
 
+
+		/**
+		 * Member Variable: Is the WooCommerce Subscription plugin active or not.
+		 *
+		 * @var bool Stores the WooCommerce Subscription plugin is active or not.
+		 */
+		public $is_wcs_active;
+
 		/**
 		 * Member Variable
 		 *
@@ -158,7 +166,7 @@ if ( ! class_exists( 'Cartflows_Pro_Loader' ) ) {
 			define( 'CARTFLOWS_PRO_BASE', plugin_basename( CARTFLOWS_PRO_FILE ) );
 			define( 'CARTFLOWS_PRO_DIR', plugin_dir_path( CARTFLOWS_PRO_FILE ) );
 			define( 'CARTFLOWS_PRO_URL', plugins_url( '/', CARTFLOWS_PRO_FILE ) );
-			define( 'CARTFLOWS_PRO_VER', '2.0.3' );
+			define( 'CARTFLOWS_PRO_VER', '2.0.4' );
 			define( 'CARTFLOWS_PRO_SLUG', 'cartflows-pro' );
 			define( 'CARTFLOWS_PRO_PLUGIN_TYPE', 'pro' );
 
@@ -238,6 +246,7 @@ if ( ! class_exists( 'Cartflows_Pro_Loader' ) ) {
 		public function load_helper_files_components() {
 
 			$this->is_woo_active = function_exists( 'WC' );
+			$this->is_wcs_active = function_exists( 'WC_Subscriptions' );
 
 			/* Public Utils */
 			include_once CARTFLOWS_PRO_DIR . 'classes/class-cartflows-pro-utils.php';

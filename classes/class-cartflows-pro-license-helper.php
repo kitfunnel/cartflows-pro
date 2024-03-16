@@ -61,15 +61,14 @@ if ( ! function_exists( 'cartflows_pro_license_request' ) ) :
 
 		$product_id = cartflows_pro_license_instance()->product_id;
 		$request_type = 'activate';
-
-
 		if ( 'activate' === $request_type ) {
-			
+
 			/*$request = CartFlows_Pro_Licence::get_instance()->activation_request( $args );
 
 			$response = json_decode( $request, true );*/
-			
 			$response['success'] = $response['activated'] = true;
+
+			$response = json_decode( $request, true );
 
 			if ( $response && true === $response['success'] && true === $response['activated'] ) {
 
